@@ -45,11 +45,17 @@
         2,
         2,
         null,
+        null,
+        1,
+        2,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/invoice.rb": [
         1,
         1,
+        1,
+        null,
         1,
         null
       ],
@@ -219,6 +225,6 @@
         null
       ]
     },
-    "timestamp": 1548300829
+    "timestamp": 1548300950
   }
 }
