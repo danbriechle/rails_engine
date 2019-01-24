@@ -129,6 +129,8 @@
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/merchant.rb": [
         1,
         1,
+        null,
+        1,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/models/transaction_spec.rb": [
@@ -231,6 +233,6 @@
         null
       ]
     },
-    "timestamp": 1548301122
+    "timestamp": 1548301161
   }
 }
