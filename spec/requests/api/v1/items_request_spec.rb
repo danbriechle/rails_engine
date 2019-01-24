@@ -42,9 +42,9 @@ describe "Items API" do
     invoice_item_2 = create(:invoice_item, invoice: invoice, item: item, created_at: 3.days.ago, quantity: 300)
 
     get "/api/v1/items/#{item.id}/best_day"
-    item = JSON.parse(response.body)
+    day = JSON.parse(response.body)
     expect(response).to be_successful
-    expect(item).to eq(invoice_item_2.created_at)
+    expect(day).to eq(invoice_item_2.created_at)
 
   end
 
