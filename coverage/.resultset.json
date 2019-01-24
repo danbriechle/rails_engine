@@ -140,6 +140,12 @@
         1,
         2,
         null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/transaction.rb": [
@@ -235,6 +241,6 @@
         null
       ]
     },
-    "timestamp": 1548301251
+    "timestamp": 1548301355
   }
 }
