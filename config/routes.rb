@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
         namespace :customers, only: [:show] do
           get ':customer_id/transactions', to: "transactions/search#index"
+          get ':customer_id/invoices', to: "invoices/search#index"
         end
 
         resources :customers, only: [:index, :show]

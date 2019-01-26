@@ -144,7 +144,6 @@ describe "Customers API" do
 
     found_customer_invoice_data = invoice_data["data"]
 
-
     found_customer_invoice_1 = found_customer_invoice_data.first["attributes"]
     found_customer_invoice_2 = found_customer_invoice_data.last["attributes"]
 
