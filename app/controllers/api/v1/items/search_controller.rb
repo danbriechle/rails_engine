@@ -11,7 +11,12 @@ class Api::V1::Items::SearchController < ApplicationController
 private
 
   def item_params
-    params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at)
+    if params.include?(:unit_price)
+      ip = params.permit(:unit_price)
+      {unit_price: ip[:unit_price].gsub(".","")}
+    else
+      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at)
+    end
   end
 
 end
