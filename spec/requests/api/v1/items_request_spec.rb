@@ -56,6 +56,28 @@ describe "Items API" do
     expect(found_item_data.count).to eq(2)
   end
 
+  it " can find all items by its unit_price " do
+
+    item_1 = create(:item, unit_price: "1251")
+    item_2 = create(:item, unit_price: "1251")
+
+    get "/api/v1/items/find_all?unit_price=12.51"
+
+    item_data = JSON.parse(response.body)
+
+    found_item_data = item_data["data"]
+    found_item_1 = found_item_data.first["attributes"]
+    found_item_2 = found_item_data.last["attributes"]
+
+
+
+    expect(response).to be_successful
+    expect(found_item_1["unit_price"]).to eq("12.51")
+    expect(found_item_2["unit_price"]).to eq("12.51")
+    expect(found_item_data.count).to eq(2)
+  end
+
+
   xit "can find the best day of an item" do
     item = create(:item)
     customer = create(:customer)
