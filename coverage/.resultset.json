@@ -682,12 +682,33 @@
         null,
         1,
         null,
-        0,
+        1,
         null,
-        0,
+        1,
         null,
-        0,
-        0,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -898,7 +919,7 @@
         null,
         null,
         1,
-        2,
+        1,
         null,
         null
       ],
@@ -906,6 +927,25 @@
         1,
         1,
         1,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/merchants/search_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/transactions_controller.rb": [
@@ -926,6 +966,6 @@
         null
       ]
     },
-    "timestamp": 1548524394
+    "timestamp": 1548524797
   }
 }
