@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  attr_reader :best_day
+
   belongs_to :merchant
   has_many :invoice_items
   has_many :invoices, through: :invoice_items
@@ -10,9 +12,9 @@ class Item < ApplicationRecord
   }
 
   def best_day
-    InvoiceItem.where(item_id: self.id)
-    .order(:quantity)
-    .last
-    .created_at
+    Item.joins(:invoice_item)
+    # .select('invoice.created_at, sum(invoice_items.quantity * invoice_items.unit_price) as best_day' )
+    # .order('best_day')
+    # .first
   end
 end

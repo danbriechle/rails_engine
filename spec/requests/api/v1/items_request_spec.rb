@@ -35,7 +35,7 @@ describe "Items API" do
     expect(item["id"]).to eq(id.to_s)
   end
 
-  it "can find the best day of an item" do
+  xit "can find the best day of an item" do
     item = create(:item)
     customer = create(:customer)
     merchant = Merchant.find(item.merchant_id)

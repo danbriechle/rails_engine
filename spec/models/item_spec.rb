@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
     it { should have_many(:invoices).through(:invoice_items)}
   end
   describe 'instance methods' do
-    it '.best_day' do
+    xit '.best_day' do
       item = create(:item)
       customer = create(:customer)
       merchant = Merchant.find(item.merchant_id)
@@ -24,9 +24,16 @@ RSpec.describe Item, type: :model do
       create(:invoice, customer: customer, merchant: merchant )
       invoice_item_2 = create(:invoice_item, invoice: invoice, item: item, created_at: 3.days.ago, quantity: 300)
 
-      day = item.best_day
 
-      expect(day).to eq(invoice_item_2.created_at)
+      best_day = item.best_day
+
+
+      expect(best_day).to eq(invoice_item_2.created_at)
+    end
+  end
+
+  describe '.class methods' do
+    it 'top_item_by_total_sales' do
     end
   end
 end
