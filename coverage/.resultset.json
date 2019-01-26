@@ -676,6 +676,19 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/transactions_request_spec.rb": [
@@ -885,7 +898,7 @@
         null,
         null,
         1,
-        1,
+        2,
         null,
         null
       ],
@@ -913,6 +926,6 @@
         null
       ]
     },
-    "timestamp": 1548522840
+    "timestamp": 1548524394
   }
 }
