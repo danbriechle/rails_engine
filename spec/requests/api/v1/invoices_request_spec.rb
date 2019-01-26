@@ -75,4 +75,46 @@ describe "Invoices API" do
     expect(found_invoice_1["merchant_id"]).to eq(invoice_1.merchant_id)
     expect(found_invoice_2["merchant_id"]).to eq(invoice_2.merchant_id)
   end
+
+  it "can find all transactions for the invoice" do
+    invoice = create(:invoice)
+    transaction_1 = create(:transaction, invoice_id: invoice.id)
+    transaction_2 = create(:transaction, invoice_id: invoice.id)
+
+    get "/api/v1/invoices/#{invoice.id}/transactions"
+
+    invoice_data= JSON.parse(response.body)
+
+    found_transaction_data = invoice_data["data"]
+    found_transaction_1 = found_transaction_data.first["attributes"]
+    found_transaction_2 = found_transaction_data.last["attributes"]
+    expect(response).to be_successful
+
+    expect(found_transaction_2["invoice_id"]).to eq(invoice.id)
+    expect(found_transaction_1["invoice_id"]).to eq(invoice.id)
+  end
+
+  it "can find all items for the invoice" do
+    item_1 = create(:item)
+    item_2 = create(:item)
+    invoice = create(:invoice)
+    invoice_item_1 = create(:invoice_item, item_id: item_1.id)
+    invoice_item_2 = create(:invoice_item, item_id: item_2.id)
+
+
+    get "/api/v1/invoices/#{invoice.id}/items"
+
+    item_data = JSON.parse(response.body)
+
+    found_item_data = item_data["data"]
+
+    found_item_1 = found_item_data.first["attributes"]
+    found_item_2 = found_item_data.last["attributes"]
+    expect(response).to be_successful
+
+    expect(found_item_2["invoice_id"]).to eq(invoice.id)
+    expect(found_item_1["invoice_id"]).to eq(invoice.id)
+
+
+  end
 end
