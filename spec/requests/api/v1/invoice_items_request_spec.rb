@@ -44,16 +44,64 @@ describe "Invoice_items API" do
     expect(invoice["id"]).to eq(id.to_s)
   end
 
-  xit "can find an invoice_item by its id " do
+  it "can find an invoice_item by its invoice_id " do
     invoice_item = create(:invoice_item)
 
-    get "/api/v1/invoice_items/find?id=#{invoice_item.id}"
+    get "/api/v1/invoice_items/find?invoice_id=#{invoice_item.invoice_id}"
 
-    invoice_item_data= JSON.parse(response.body)
+    invoice_item_data = JSON.parse(response.body)
 
-    found_invoice_item = invoice_item_data["data"]
+    found_invoice_item_data = invoice_item_data["data"]
+
+    found_invoice_item = found_invoice_item_data["attributes"]
 
     expect(response).to be_successful
-    expect(found_invoice_item["id"]).to eq(invoice_item.id.to_s)
+    expect(found_invoice_item["invoice_id"]).to eq(invoice_item.invoice_id)
   end
+
+  it "can find an invoice_item by its item_id " do
+    invoice_item = create(:invoice_item)
+
+    get "/api/v1/invoice_items/find?item_id=#{invoice_item.item_id}"
+
+    invoice_item_data = JSON.parse(response.body)
+
+    found_invoice_item_data = invoice_item_data["data"]
+
+    found_invoice_item = found_invoice_item_data["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice_item["item_id"]).to eq(invoice_item.item_id)
+  end
+
+  it "can find an invoice_item by its quantity " do
+    invoice_item = create(:invoice_item)
+
+    get "/api/v1/invoice_items/find?quantity=#{invoice_item.quantity}"
+
+    invoice_item_data = JSON.parse(response.body)
+
+    found_invoice_item_data = invoice_item_data["data"]
+
+    found_invoice_item = found_invoice_item_data["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice_item["quantity"]).to eq(invoice_item.quantity)
+  end
+
+  it "can find an invoice_item by its unit price " do
+    invoice_item = create(:invoice_item)
+
+    get "/api/v1/invoice_items/find?unit_price=#{invoice_item.unit_price}"
+
+    invoice_item_data = JSON.parse(response.body)
+
+    found_invoice_item_data = invoice_item_data["data"]
+
+    found_invoice_item = found_invoice_item_data["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice_item["unit_price"]).to eq(invoice_item.unit_price)
+  end
+
 end
