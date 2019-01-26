@@ -12,13 +12,13 @@ describe "Customers API" do
     id = create(:customer).id
 
 
-    get "/api/v1/customer/#{id}"
+    get "/api/v1/customers/#{id}"
 
     customer_data= JSON.parse(response.body)
 
     customer = customer_data["data"]
 
     expect(response).to be_successful
-    expect(item["id"]).to eq(id.to_s)
+    expect(customer["id"]).to eq(id.to_s)
   end
 end
