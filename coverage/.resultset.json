@@ -77,20 +77,20 @@
         null,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
-        1,
-        1,
-        null,
-        null,
-        1,
+        0,
+        0,
         null,
         null,
-        1,
+        0,
+        null,
+        null,
+        0,
         null,
         null,
         null,
@@ -115,7 +115,7 @@
         null,
         null,
         1,
-        2,
+        0,
         null,
         null,
         null,
@@ -163,6 +163,42 @@
         1,
         null
       ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/customers_request_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/invoice_items_request_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/invoices_request_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/items_request_spec.rb": [
         1,
         1,
@@ -202,16 +238,16 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
-        1,
-        1,
+        0,
+        0,
         null,
-        1,
+        0,
         0,
         0,
         0,
@@ -219,12 +255,32 @@
         null,
         null
       ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/items_controller.rb": [
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/merchants_request_spec.rb": [
         1,
         1,
         1,
         null,
+        1,
         null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/spec/requests/api/v1/transactions_request_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/customers_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -232,6 +288,23 @@
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/application_controller.rb": [
         1,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/customer_serializer.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/items_controller.rb": [
+        1,
+        1,
+        5,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/item_serializer.rb": [
@@ -251,28 +324,8 @@
         null,
         null,
         null
-      ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/items/best_day_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/best_day_serializer.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
       ]
     },
-    "timestamp": 1548433752
+    "timestamp": 1548462243
   }
 }
