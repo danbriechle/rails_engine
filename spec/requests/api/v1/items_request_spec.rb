@@ -23,16 +23,37 @@ describe "Items API" do
   end
 
   it "can find an item by its id " do
-    id = create(:item).id
+    item = create(:item)
 
-    get "/api/v1/items/find?id=#{id}"
+    get "/api/v1/items/find?id=#{item.id}"
 
-    item_data= JSON.parse(response.body)
+    item_data = JSON.parse(response.body)
 
-    item = item_data["data"]
+    found_item = item_data["data"]
 
     expect(response).to be_successful
-    expect(item["id"]).to eq(id.to_s)
+    expect(found_item["id"]).to eq(item.id.to_s)
+  end
+
+  it "can find all items by its merchant_id " do
+    merchant = create(:merchant)
+    item_1 = create(:item, merchant_id: merchant.id)
+    item_2 = create(:item, merchant_id: merchant.id)
+
+    get "/api/v1/items/find_all?merchant_id=#{item_1.merchant_id}"
+
+    item_data = JSON.parse(response.body)
+
+    found_item_data = item_data["data"]
+    found_item_1 = found_item_data.first["attributes"]
+    found_item_2 = found_item_data.last["attributes"]
+
+
+
+    expect(response).to be_successful
+    expect(found_item_1["merchant_id"]).to eq(item_2.merchant_id)
+    expect(found_item_2["merchant_id"]).to eq(item_1.merchant_id)
+    expect(found_item_data.count).to eq(2)
   end
 
   xit "can find the best day of an item" do

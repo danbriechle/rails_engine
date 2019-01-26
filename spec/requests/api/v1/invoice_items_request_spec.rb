@@ -132,8 +132,8 @@ describe "Invoice_items API" do
   end
 
   it "can find all invoice_items by quantity " do
-    invoice_item_1 = create(:invoice_item, quantity: 40)
-    invoice_item_2 = create(:invoice_item, quantity: 40)
+    invoice_item_1 = create(:invoice_item, quantity: "40")
+    invoice_item_2 = create(:invoice_item, quantity: "40")
 
     get "/api/v1/invoice_items/find_all?quantity=#{invoice_item_1.quantity}"
 
@@ -152,7 +152,7 @@ describe "Invoice_items API" do
   end
 
   it "can find an invoice_item by its unit price " do
-    invoice_item = create(:invoice_item, unit_price: "1200.56")
+    invoice_item = create(:invoice_item, unit_price: "12.56")
 
     get "/api/v1/invoice_items/find?unit_price=#{invoice_item.unit_price}"
 
@@ -167,8 +167,8 @@ describe "Invoice_items API" do
   end
 
   it "can find all invoice_items by unit_price " do
-    invoice_item_1 = create(:invoice_item, unit_price: 1200)
-    invoice_item_2 = create(:invoice_item, unit_price: 1200)
+    invoice_item_1 = create(:invoice_item, unit_price: "12.50")
+    invoice_item_2 = create(:invoice_item, unit_price: "12.50")
 
     get "/api/v1/invoice_items/find_all?unit_price=#{invoice_item_1.unit_price}"
 
@@ -183,7 +183,7 @@ describe "Invoice_items API" do
     expect(response).to be_successful
     expect(found_invoice_item_data.count).to eq(2)
     expect(found_invoice_item_1["unit_price"]).to eq(invoice_item_1.unit_price)
-    expect(found_invoice_item_2["unit_price"]).to eq(invoice_item_2.unit_price)
+    expect(found_invoice_item_2["unit_price"]).to eq(invoice_item_1.unit_price)
   end
 
 end

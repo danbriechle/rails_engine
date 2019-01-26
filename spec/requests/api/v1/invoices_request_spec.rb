@@ -67,9 +67,6 @@ describe "Invoices API" do
 
     found_invoice_data = invoice_data["data"]
 
-    binding.pry
-
-
     found_invoice_1 = found_invoice_data.first["attributes"]
     found_invoice_2 = found_invoice_data.last["attributes"]
 
