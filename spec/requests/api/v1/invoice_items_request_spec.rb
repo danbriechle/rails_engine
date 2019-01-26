@@ -9,10 +9,16 @@ describe "Invoice_items API" do
   end
 
   it "can get one invoice by its id" do
-    id = create(:customer).id
+    item = create(:item)
+    customer = create(:customer)
+    merchant = Merchant.find(item.merchant_id)
+    invoice = create(:invoice, customer: customer, merchant: merchant )
+    invoice_item = create(:invoice_item, invoice: invoice, item: item, quantity: 40)
+
+    id = invoice_item.id
 
 
-    get "/api/v1/invoices/#{id}"
+    get "/api/v1/invoice_items/#{id}"
 
     invoice_data= JSON.parse(response.body)
 
