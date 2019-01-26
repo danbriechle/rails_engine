@@ -189,4 +189,38 @@ describe "Invoice_items API" do
     expect(found_invoice_item_2["unit_price"]).to eq("12.52")
   end
 
+  it "can find the item associated with and invoice_item" do
+    item = create(:item)
+    invoice_item = create(:invoice_item, item_id: item.id)
+
+    get "/api/v1/invoice_items/#{invoice_item.id}/item"
+
+    invoice_data= JSON.parse(response.body)
+
+    found_invoice_item = invoice_data["data"]["attributes"]
+
+    expect(response).to be_successful
+
+    expect(found_invoice_item["name"]).to eq(item.name)
+    expect(found_invoice_item["descriprion"]).to eq(item.description)
+
+  end
+
+  it "can find the invoice associated with and invoice_item" do
+    invoice = create(:invoice)
+    invoice_item = create(:invoice_item, invoice_id: invoice.id)
+
+    get "/api/v1/invoice_items/#{invoice_item.id}/invoice"
+
+    invoice_data= JSON.parse(response.body)
+
+    found_invoice = invoice_data["data"]["attributes"]
+
+    expect(response).to be_successful
+
+    expect(found_invoice["id"]).to eq(invoice.id)
+    expect(found_invoice["customer_id"]).to eq(invoice.customer_id)
+
+  end
+
 end
