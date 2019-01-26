@@ -41,4 +41,42 @@ describe "transactions API" do
     expect(response).to be_successful
     expect(transaction["id"]).to eq(id.to_s)
   end
+
+  it "can find a transaction by its invoice_id" do
+    id = create(:invoice).id
+    transaction = create(:transaction, invoice_id: id)
+
+    get "/api/v1/transactions/find?id=#{transaction.id}"
+
+    transaction_data= JSON.parse(response.body)
+
+    transaction_data = transaction_data["data"]
+    transaction = transaction_data["attributes"]
+
+    expect(response).to be_successful
+    expect(transaction["invoice_id"]).to eq(id.to_s)
+  end
+
+
+  it "can find all transactions by invoice_id " do
+    id = create(:invoice).id
+    transaction_1 = create(:transaction, invoice_id: id)
+    transaction_2 = create(:transaction, invoice_id: id)
+
+    get "/api/v1/transactions/find_all?invoice_id=#{transaction_1.invoice_id}"
+
+    transaction_data = JSON.parse(response.body)
+
+
+    found_transaction_data = transaction_data["data"]
+
+
+    found_transaction_1 = found_transaction_data.first["attributes"]
+    found_transaction_2 = found_transaction_data.last["attributes"]
+
+    expect(response).to be_successful
+    expect(found_transaction_data.count).to eq(2)
+    expect(found_transaction_1["unit_price"]).to eq("12.52")
+    expect(found_transaction_2["unit_price"]).to eq("12.52")
+  end
 end
