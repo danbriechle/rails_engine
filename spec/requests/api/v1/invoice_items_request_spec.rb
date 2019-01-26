@@ -43,4 +43,17 @@ describe "Invoice_items API" do
     expect(response).to be_successful
     expect(invoice["id"]).to eq(id.to_s)
   end
+
+  it "can find an invoice_item by its id " do
+    invoice_item = create(:invoice_item)
+
+    get "/api/v1/invoice_items/find?id=#{invoice_item.id}"
+
+    invoice_item_data= JSON.parse(response.body)
+
+    found_invoice_item = invoice_item_data["data"]
+
+    expect(response).to be_successful
+    expect(found_invoice_item["id"]).to eq(invoice_item.id.to_s)
+  end
 end
