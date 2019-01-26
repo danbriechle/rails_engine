@@ -1,10 +1,10 @@
-describe "Invoice_items API" do
+describe "Invoices API" do
   it "sends a list of items" do
     create_list(:item, 3)
 
     get '/api/v1/items'
 
     expect(response).to be_successful
-    invoice_items = JSON.parse(response.body)
+    invoices = JSON.parse(response.body)
   end
 end
