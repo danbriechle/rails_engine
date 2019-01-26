@@ -54,7 +54,7 @@ describe "transactions API" do
     transaction = transaction_data["attributes"]
 
     expect(response).to be_successful
-    expect(transaction["invoice_id"]).to eq(id.to_s)
+    expect(transaction["invoice_id"]).to eq(id)
   end
 
 
@@ -76,7 +76,7 @@ describe "transactions API" do
 
     expect(response).to be_successful
     expect(found_transaction_data.count).to eq(2)
-    expect(found_transaction_1["unit_price"]).to eq("12.52")
-    expect(found_transaction_2["unit_price"]).to eq("12.52")
+    expect(found_transaction_1["invoice_id"]).to eq(id)
+    expect(found_transaction_2["invoice_id"]).to eq(id)
   end
 end
