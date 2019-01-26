@@ -43,7 +43,7 @@ describe "Invoices API" do
   it "can find an invoice by its id " do
     invoice = create(:invoice)
 
-    get "/api/v1/invoice/find?id=#{invoice.id}"
+    get "/api/v1/invoices/find?id=#{invoice.id}"
 
     invoice_data = JSON.parse(response.body)
 
@@ -53,5 +53,29 @@ describe "Invoices API" do
 
     expect(response).to be_successful
     expect(found_invoice["id"]).to eq(invoice.id)
+  end
+
+  it "can find all invoices by merchant_id " do
+    merchant = create(:merchant)
+    invoice_1 = create(:invoice, merchant: merchant)
+    invoice_2 = create(:invoice, merchant: merchant)
+
+
+    get "/api/v1/invoices/find_all?merchant_id=#{invoice_1.merchant_id}"
+
+    invoice_data = JSON.parse(response.body)
+
+    found_invoice_data = invoice_data["data"]
+
+    binding.pry
+
+
+    found_invoice_1 = found_invoice_data.first["attributes"]
+    found_invoice_2 = found_invoice_data.last["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice_data.count).to eq(2)
+    expect(found_invoice_1["merchant_id"]).to eq(invoice_1.merchant_id)
+    expect(found_invoice_2["merchant_id"]).to eq(invoice_2.merchant_id)
   end
 end
