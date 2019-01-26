@@ -7,7 +7,7 @@ class Api::V1::Customers::SearchController < ApplicationController
   private
 
   def customer_params
-    params.permit(:id)
+    params.permit(:variable)
   end
 
 end
