@@ -45,46 +45,46 @@ describe "Customers API" do
     found_customer = customer_data["data"]
 
     expect(response).to be_successful
-    expect(found_customer["id"]).to eq(customer.id.to_s)
+    expect(found_customer["last_name"]).to eq(customer.last_name)
   end
 
   it "can find a customer by its first_name " do
     customer = create(:customer)
 
-    get "/api/v1/customers/find?last_name=#{customer.first_name}"
+    get "/api/v1/customers/find?first_name=#{customer.first_name}"
 
     customer_data= JSON.parse(response.body)
 
     found_customer = customer_data["data"]
 
     expect(response).to be_successful
-    expect(found_customer["id"]).to eq(customer.id.to_s)
+    expect(found_customer["fist_name"]).to eq(customer.first_name)
   end
 
   it "can find a customer by its created_at " do
     customer = create(:customer)
 
-    get "/api/v1/customers/find?last_name=#{customer.created_at}"
+    get "/api/v1/customers/find?created_at=#{customer.created_at}"
 
     customer_data= JSON.parse(response.body)
 
     found_customer = customer_data["data"]
 
     expect(response).to be_successful
-    expect(found_customer["id"]).to eq(customer.id.to_s)
+    expect(found_customer["created_at"]).to eq(customer.created_at)
   end
 
   it "can find a customer by its updated_at " do
     customer = create(:customer)
 
-    get "/api/v1/customers/find?last_name=#{customer.updated_at}"
+    get "/api/v1/customers/find?updated_at=#{customer.updated_at}"
 
     customer_data= JSON.parse(response.body)
 
     found_customer = customer_data["data"]
 
     expect(response).to be_successful
-    expect(found_customer["id"]).to eq(customer.id.to_s)
+    expect(found_customer["updated_at"]).to eq(customer.updated_at)
   end
 
 end
