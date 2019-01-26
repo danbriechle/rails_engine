@@ -153,7 +153,6 @@
         1,
         2,
         2,
-        2,
         null,
         null
       ],
@@ -567,9 +566,6 @@
         1,
         null,
         1,
-        null,
-        null,
-        1,
         1,
         null,
         1,
@@ -613,6 +609,27 @@
         null,
         1,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -762,6 +779,7 @@
         1,
         1,
         1,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/invoice_items/search_controller.rb": [
@@ -832,9 +850,12 @@
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/item_serializer.rb": [
         1,
         1,
+        null,
         1,
         null,
         1,
+        7,
+        null,
         null,
         null
       ],
@@ -843,6 +864,16 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
         null,
         null,
         null
@@ -882,6 +913,6 @@
         null
       ]
     },
-    "timestamp": 1548481051
+    "timestamp": 1548522840
   }
 }
