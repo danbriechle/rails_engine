@@ -47,6 +47,7 @@ describe "Invoice_items API" do
   it "can find an invoice_item by its invoice_id " do
     invoice_item = create(:invoice_item)
 
+
     get "/api/v1/invoice_items/find?invoice_id=#{invoice_item.invoice_id}"
 
     invoice_item_data = JSON.parse(response.body)
@@ -135,6 +136,7 @@ describe "Invoice_items API" do
     invoice_item_1 = create(:invoice_item, quantity: "40")
     invoice_item_2 = create(:invoice_item, quantity: "40")
 
+
     get "/api/v1/invoice_items/find_all?quantity=#{invoice_item_1.quantity}"
 
     invoice_item_data = JSON.parse(response.body)
@@ -152,9 +154,9 @@ describe "Invoice_items API" do
   end
 
   it "can find an invoice_item by its unit price " do
-    invoice_item = create(:invoice_item, unit_price: "12.56")
+    invoice_item = create(:invoice_item, unit_price: "1250")
 
-    get "/api/v1/invoice_items/find?unit_price=#{invoice_item.unit_price}"
+    get "/api/v1/invoice_items/find?unit_price=12.50"
 
     invoice_item_data = JSON.parse(response.body)
 
@@ -167,12 +169,13 @@ describe "Invoice_items API" do
   end
 
   it "can find all invoice_items by unit_price " do
-    invoice_item_1 = create(:invoice_item, unit_price: "12.50")
-    invoice_item_2 = create(:invoice_item, unit_price: "12.50")
+    invoice_item_1 = create(:invoice_item, unit_price: "1250")
+    invoice_item_2 = create(:invoice_item, unit_price: "1250")
 
-    get "/api/v1/invoice_items/find_all?unit_price=#{invoice_item_1.unit_price}"
+    get "/api/v1/invoice_items/find_all?unit_price=12.50"
 
     invoice_item_data = JSON.parse(response.body)
+
 
     found_invoice_item_data = invoice_item_data["data"]
 
@@ -182,7 +185,7 @@ describe "Invoice_items API" do
 
     expect(response).to be_successful
     expect(found_invoice_item_data.count).to eq(2)
-    expect(found_invoice_item_1["unit_price"]).to eq(invoice_item_1.unit_price)
+    expect(found_invoice_item_1["unit_price"]).to eq(invoice_item_2.unit_price)
     expect(found_invoice_item_2["unit_price"]).to eq(invoice_item_1.unit_price)
   end
 
