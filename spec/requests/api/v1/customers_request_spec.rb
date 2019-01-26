@@ -133,4 +133,27 @@ describe "Customers API" do
 
   end
 
+  it "cand find all the invoices for a customer " do
+    customer = create(:customer)
+    invoice_1 = create(:invoice, customer_id: customer.id)
+    invoice_2 = create(:invoice, customer_id: customer.id)
+
+    get "/api/v1/customers/#{customer.id}/invoices"
+
+    invoice_data= JSON.parse(response.body)
+
+    found_customer_invoice_data = invoice_data["data"]
+
+
+    found_customer_invoice_1 = found_customer_invoice_data.first["attributes"]
+    found_customer_invoice_2 = found_customer_invoice_data.last["attributes"]
+
+    expect(response).to be_successful
+
+    expect(found_customer_invoice_1["customer_id"]).to eq(invoice_1.customer_id)
+    expect(found_customer_invoice_2["customer_id"]).to eq(invoice_2.customer_id)
+    expect(found_customer_invoice_data.count).to eq(2)
+
+  end
+
 end
