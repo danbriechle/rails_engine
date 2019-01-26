@@ -109,4 +109,28 @@ describe "Customers API" do
     expect(found_customer_data.count).to eq(2)
   end
 
+  it "cand find all the transaction for a customer " do
+    customer = create(:customer)
+    invoice = create(:invoice, customer_id: customer.id)
+    transaction_1 = create(:transaction, invoice_id: invoice.id)
+    transaction_2 = create(:transaction, invoice_id: invoice.id, result: "Failure")
+
+    get "/api/v1/customers/#{customer.id}/transactions"
+
+    transaction_data= JSON.parse(response.body)
+
+    found_customer_transaction_data = transaction_data["data"]
+
+
+    found_customer_transaction_1 = found_customer_transaction_data.first["attributes"]
+    found_customer_transaction_2 = found_customer_transaction_data.last["attributes"]
+
+    expect(response).to be_successful
+
+    expect(found_customer_transaction_1["result"]).to eq(transaction_1.result)
+    expect(found_customer_transaction_2["result"]).to eq(transaction_2.result)
+    expect(found_customer_transaction_data.count).to eq(2)
+
+  end
+
 end
