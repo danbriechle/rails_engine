@@ -21,4 +21,17 @@ describe "Customers API" do
     expect(response).to be_successful
     expect(customer["id"]).to eq(id.to_s)
   end
+
+  it "can find a customer by its id " do
+    customer = create(:item)
+
+    get "/api/v1/customers/find?id=#{customer.id}"
+
+    customer_data= JSON.parse(response.body)
+
+    customer = customer_data["data"]
+
+    expect(response).to be_successful
+    expect(customer["id"]).to eq(id.to_s)
+  end
 end
