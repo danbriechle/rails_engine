@@ -172,14 +172,13 @@ describe "Customers API" do
 
     found_merchant_data = merchant_data["data"]
 
-
-    found_merchant = found_merchant_data["attributes"]
+    found_merchant = found_merchant_data[0]["attributes"]
 
     expect(response).to be_successful
 
     expect(found_merchant["id"]).to eq(merchant_1.id)
     expect(found_merchant["id"]).to_not eq(merchant_2.id)
-  
+
   end
 
 
