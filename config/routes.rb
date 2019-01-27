@@ -48,8 +48,8 @@ Rails.application.routes.draw do
           get ':invoice_id/transactions', to: "transactions/search#index"
           get ':invoice_id/items', to: "items/search#index"
           get ':invoice_id/invoice_items', to: "invoice_items/search#index"
-          get ':invoice_id/customer', to: "customer/search#show"
-          get ':invoice_id/merchant', to: "merchant/search#show"
+          get ':invoice_id/customer', to: "customers/search#show"
+          get ':invoice_id/merchant', to: "merchants/search#show"
         end
 
 
