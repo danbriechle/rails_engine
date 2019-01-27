@@ -4,8 +4,19 @@
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/customer.rb": [
         1,
         1,
+        1,
+        1,
         null,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        2,
+        null,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/application_record.rb": [
@@ -138,6 +149,8 @@
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/merchant.rb": [
+        1,
+        1,
         1,
         1,
         null,
@@ -1430,6 +1443,6 @@
         null
       ]
     },
-    "timestamp": 1548623357
+    "timestamp": 1548629266
   }
 }
