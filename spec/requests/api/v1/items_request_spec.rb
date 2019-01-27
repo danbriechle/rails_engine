@@ -98,6 +98,22 @@ describe "Items API" do
 
   end
 
+  it "can find the merchant associated with the item" do
+    merchant = create(:merchant)
+    item = create(:item, merchant: merchant)
+
+    get "/api/v1/items/#{item.id}/merchant"
+
+    merchant_data = JSON.parse(response.body)
+
+    found_merchant_data = merchant_data["data"]
+
+    found_merchant = found_merchant_data["attributes"]
+
+    expect(response).to be_successful
+    expect(found_merchant["id"]).to eq(item.merchant_id)
+  end
+
 
   xit "can find the best day of an item" do
     item = create(:item)
