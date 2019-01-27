@@ -77,8 +77,8 @@ describe "Merchants API" do
 
   it " can find all the invoices associated with one merchant " do
     merchant = create(:merchant)
-    invoice_1 = create(:item, merchant_id: merchant.id)
-    invoice_2 = create(:item, merchant_id: merchant.id)
+    invoice_1 = create(:invoice, merchant_id: merchant.id)
+    invoice_2 = create(:invoice, merchant_id: merchant.id)
 
     get "/api/v1/merchants/#{merchant.id}/invoices"
 
