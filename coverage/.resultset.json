@@ -4,8 +4,19 @@
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/customer.rb": [
         1,
         1,
+        1,
+        1,
         null,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        null,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/application_record.rb": [
@@ -138,6 +149,8 @@
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/models/merchant.rb": [
+        1,
+        1,
         1,
         1,
         null,
@@ -319,6 +332,34 @@
         1,
         1,
         1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
         null,
         null,
         null,
@@ -1143,6 +1184,19 @@
         1,
         null
       ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/customers/favorite_merchant/search_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/merchant_serializer.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/invoice_items_controller.rb": [
         1,
         1,
@@ -1253,7 +1307,6 @@
         1,
         1,
         1,
-        1,
         null,
         null
       ],
@@ -1292,12 +1345,6 @@
         1,
         null,
         null,
-        null
-      ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/serializers/merchant_serializer.rb": [
-        1,
-        1,
-        1,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/items_controller.rb": [
@@ -1431,6 +1478,6 @@
         null
       ]
     },
-    "timestamp": 1548621954
+    "timestamp": 1548629978
   }
 }
