@@ -109,7 +109,7 @@ describe "Customers API" do
     expect(found_customer_data.count).to eq(2)
   end
 
-  it "cand find all the transaction for a customer " do
+  it "can find all the transaction for a customer " do
     customer = create(:customer)
     invoice = create(:invoice, customer_id: customer.id)
     transaction_1 = create(:transaction, invoice_id: invoice.id)
@@ -133,7 +133,7 @@ describe "Customers API" do
 
   end
 
-  it "cand find all the invoices for a customer " do
+  it "can find all the invoices for a customer " do
     customer = create(:customer)
     invoice_1 = create(:invoice, customer_id: customer.id)
     invoice_2 = create(:invoice, customer_id: customer.id)
@@ -154,5 +154,34 @@ describe "Customers API" do
     expect(found_customer_invoice_data.count).to eq(2)
 
   end
+
+  it "can find the favorite merchant of a customer" do
+    customer = create(:customer)
+    merchant_1 = create(:merchant)
+    merchant_2 = create(:merchant)
+    invoice_1 = create(:invoice, merchant_id: merchant_1.id, customer_id: customer.id)
+    invoice_2 = create(:invoice, merchant_id: merchant_1.id, customer_id: customer.id)
+    invoice_3 = create(:invoice, merchant_id: merchant_1.id, customer_id: customer.id)
+
+    invoice_4 = create(:invoice, merchant_id: merchant_2.id, customer_id: customer.id)
+    invoice_5 = create(:invoice, merchant_id: merchant_2.id, customer_id: customer.id)
+
+    get "/api/v1/customers/#{customer.id}/favorite_merchant"
+
+    merchant_data= JSON.parse(response.body)
+
+    found_merchant_data = merchant_data["data"]
+
+
+    found_merchant = found_merchant_data["attributes"]
+
+    expect(response).to be_successful
+
+    expect(found_merchant["id"]).to eq(merchant_1.id)
+    expect(found_merchant["id"]).to_not eq(merchant_2.id)
+  
+  end
+
+
 
 end
