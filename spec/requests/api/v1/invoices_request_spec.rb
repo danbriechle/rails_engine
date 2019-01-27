@@ -115,6 +115,30 @@ describe "Invoices API" do
     expect(found_item_2["description"]).to eq(item_2.description)
     expect(found_item_1["id"]).to eq(item_1.id)
 
+  end
+
+  it "can find all invoice_items for the invoice" do
+    item_1 = create(:item)
+    item_2 = create(:item)
+    invoice = create(:invoice)
+    invoice_item_1 = create(:invoice_item, invoice_id: invoice.id, item_id: item_1.id)
+    invoice_item_2 = create(:invoice_item, invoice_id: invoice.id,  item_id: item_2.id)
+
+
+    get "/api/v1/invoices/#{invoice.id}/invoice_items"
+
+    item_invoice_data = JSON.parse(response.body)
+
+    found_item_invoice_data = item_invoice_data["data"]
+
+    found_item_invoice_1 = found_item_invoice_data.first["attributes"]
+    found_item_invoice_2 = found_item_invoice_data.last["attributes"]
+    expect(response).to be_successful
+
+    expect(found_item_invoice_2["item_id"]).to eq(invoice_item_2.item_id)
+    expect(found_item_invoice_1["id"]).to eq(invoice_item_1.id)
 
   end
+
+
 end
