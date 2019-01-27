@@ -98,8 +98,8 @@ describe "Invoices API" do
     item_1 = create(:item)
     item_2 = create(:item)
     invoice = create(:invoice)
-    invoice_item_1 = create(:invoice_item, item_id: item_1.id)
-    invoice_item_2 = create(:invoice_item, item_id: item_2.id)
+    invoice_item_1 = create(:invoice_item, invoice_id: invoice.id, item_id: item_1.id)
+    invoice_item_2 = create(:invoice_item, invoice_id: invoice.id,  item_id: item_2.id)
 
 
     get "/api/v1/invoices/#{invoice.id}/items"
@@ -112,8 +112,8 @@ describe "Invoices API" do
     found_item_2 = found_item_data.last["attributes"]
     expect(response).to be_successful
 
-    expect(found_item_2["invoice_id"]).to eq(invoice.id)
-    expect(found_item_1["invoice_id"]).to eq(invoice.id)
+    expect(found_item_2["description"]).to eq(item_2.description)
+    expect(found_item_1["id"]).to eq(item_1.id)
 
 
   end
