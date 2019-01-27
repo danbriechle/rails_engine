@@ -140,5 +140,24 @@ describe "Invoices API" do
 
   end
 
+  it "can find the customer for the invoice" do
+    customer = create(:customer)
+    invoice = create(:invoice, customer: customer)
+
+
+    get "/api/v1/invoices/#{invoice.id}/customer"
+
+    customer_data = JSON.parse(response.body)
+
+    found_customer_data = customer_data["data"]
+
+    found_customer = found_customer_data["attributes"]
+    expect(response).to be_successful
+
+    expect(found_customer["last_name"]).to eq(customer.last_name)
+    expect(found_customer["id"]).to eq(invoice.customer_id)
+
+  end
+
 
 end
