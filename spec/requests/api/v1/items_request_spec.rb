@@ -77,6 +77,27 @@ describe "Items API" do
     expect(found_item_data.count).to eq(2)
   end
 
+  it " can find all invoice_items associated with the item " do
+    item = create(:item)
+    invoice_item_1 = create(:invoice_item, item_id: item.id)
+    invoice_item_2 = create(:invoice_item, item_id: item.id)
+
+    get "/api/v1/items/#{item.id}/invoice_items"
+
+    invoice_item_data = JSON.parse(response.body)
+
+    found_invoice_item_data = invoice_item_data["data"]
+
+    found_invoice_item_1 = found_invoice_item_data.first["attributes"]
+    found_invoice_item_2 = found_invoice_item_data.last["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice_item_data.count).to eq(2)
+    expect(found_invoice_item_1["item_id"]).to eq(invoice_item_1.item_id)
+    expect(found_invoice_item_2["item_id"]).to eq(item.id)
+
+  end
+
 
   xit "can find the best day of an item" do
     item = create(:item)
