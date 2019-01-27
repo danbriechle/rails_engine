@@ -159,5 +159,22 @@ describe "Invoices API" do
 
   end
 
+  it "can find the merchant for the invoice" do
+    merchant = create(:merchant)
+    invoice = create(:invoice, merchant: merchant)
+
+    get "/api/v1/invoices/#{invoice.id}/merchant"
+
+    merchant_data = JSON.parse(response.body)
+
+    found_merchant_data = merchant_data["data"]
+
+    found_merchant = found_merchant_data["attributes"]
+    expect(response).to be_successful
+
+    expect(found_merchant["name"]).to eq(merchant.name)
+    expect(found_merchant["id"]).to eq(invoice.merchant_id)
+  end
+
 
 end
