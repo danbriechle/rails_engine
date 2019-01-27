@@ -1054,6 +1054,27 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/customers_controller.rb": [
@@ -1390,6 +1411,6 @@
         null
       ]
     },
-    "timestamp": 1548619379
+    "timestamp": 1548619743
   }
 }

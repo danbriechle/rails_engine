@@ -79,4 +79,25 @@ describe "transactions API" do
     expect(found_transaction_1["invoice_id"]).to eq(id)
     expect(found_transaction_2["invoice_id"]).to eq(id)
   end
+
+  it "can find the invoice associated with the transaction" do
+    id = create(:invoice).id
+    transaction = create(:transaction, invoice_id: id)
+
+    get "/api/v1/transactions/#{transaction.id}/invoice"
+
+    invoice_data = JSON.parse(response.body)
+
+
+    found_invoice_data = invoice_data["data"]
+
+
+    found_invoice = found_invoice_data["attributes"]
+
+    expect(response).to be_successful
+    expect(found_invoice["transaction_id"]).to eq(transaction.id)
+    expect(found_invoice["invoice_id"]).to eq(id)
+
+
+  end
 end
