@@ -1061,19 +1061,17 @@
         null,
         1,
         null,
-        0,
+        1,
         null,
         null,
-        0,
+        1,
         null,
         null,
-        0,
+        1,
         null,
-        0,
-        0,
-        0,
-        null,
-        null,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -1132,22 +1130,10 @@
         1,
         null
       ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/invoices/search_controller.rb": [
-        1,
-        null,
-        1,
-        2,
-        null,
-        null,
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/customers/invoices/search_controller.rb": [
         1,
         1,
-        null,
-        null,
         1,
-        null,
-        1,
-        3,
-        null,
         null,
         null
       ],
@@ -1244,22 +1230,30 @@
         null,
         null
       ],
-      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/transactions/search_controller.rb": [
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/invoices/search_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
         1,
         null,
         1,
         2,
         null,
         null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/invoices/transactions/search_controller.rb": [
         1,
         1,
-        null,
-        null,
         1,
-        null,
         1,
-        3,
-        null,
         null,
         null
       ],
@@ -1409,8 +1403,34 @@
         1,
         null,
         null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/transactions/search_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/danielbriechle/turing/3mod/rails_eng/rails_engine/app/controllers/api/v1/transactions/invoices/search_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1548619743
+    "timestamp": 1548621954
   }
 }

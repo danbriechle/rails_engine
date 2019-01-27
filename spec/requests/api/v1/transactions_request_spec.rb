@@ -81,8 +81,8 @@ describe "transactions API" do
   end
 
   it "can find the invoice associated with the transaction" do
-    id = create(:invoice).id
-    transaction = create(:transaction, invoice_id: id)
+    invoice = create(:invoice)
+    transaction = create(:transaction, invoice_id: invoice.id)
 
     get "/api/v1/transactions/#{transaction.id}/invoice"
 
@@ -95,9 +95,7 @@ describe "transactions API" do
     found_invoice = found_invoice_data["attributes"]
 
     expect(response).to be_successful
-    expect(found_invoice["transaction_id"]).to eq(transaction.id)
-    expect(found_invoice["invoice_id"]).to eq(id)
-
-
+    expect(found_invoice["customer_id"]).to eq(invoice.customer_id)
+    expect(found_invoice["status"]).to eq(invoice.status)
   end
 end
