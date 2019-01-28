@@ -14,21 +14,21 @@ RSpec.describe Item, type: :model do
     it { should have_many(:invoices).through(:invoice_items)}
   end
   describe 'instance methods' do
-    xit '.best_day' do
+    it '.best_day' do
       item = create(:item)
       customer = create(:customer)
       merchant = Merchant.find(item.merchant_id)
       invoice = create(:invoice, customer: customer, merchant: merchant )
-      create(:invoice_item, invoice: invoice, item: item, quantity: 40)
+      invoice_item_1 = create(:invoice_item, invoice: invoice, item: item, quantity: 40)
 
-      create(:invoice, customer: customer, merchant: merchant )
-      invoice_item_2 = create(:invoice_item, invoice: invoice, item: item, created_at: 3.days.ago, quantity: 300)
+      invoice_2 = create(:invoice, customer: customer, merchant: merchant, created_at: 3.days.ago )
+      invoice_item_2 = create(:invoice_item, invoice: invoice_2, item: item, quantity: 300)
 
 
       best_day = item.best_day
 
 
-      expect(best_day).to eq(invoice_item_2.created_at)
+      expect(best_day).to eq(invoice_2.created_at)
     end
   end
 

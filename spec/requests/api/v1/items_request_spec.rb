@@ -120,7 +120,7 @@ describe "Items API" do
     customer = create(:customer)
     merchant = Merchant.find(item.merchant_id)
     invoice = create(:invoice, customer: customer, merchant: merchant )
-    create(:invoice_item, invoice: invoice, item: item, quantity: 40)
+    invoice_item_1 = create(:invoice_item, invoice: invoice, item: item, quantity: 40)
 
     create(:invoice, customer: customer, merchant: merchant )
     invoice_item_2 = create(:invoice_item, invoice: invoice, item: item, created_at: 3.days.ago, quantity: 300)
@@ -128,7 +128,8 @@ describe "Items API" do
     get "/api/v1/items/#{item.id}/best_day"
     day = JSON.parse(response.body)
     expect(response).to be_successful
-    expect(day).to eq(invoice_item_2.created_at)
+    expect(day).to eq(invoice.created_at)
+    expect(day).to_not eq(invoice.created_at)
   end
 
 end
